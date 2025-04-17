@@ -26,15 +26,4 @@ All models are based on v1.0 architecture trained using log-mel spectrograms wit
 
 ### Inference with ONNX Runtime (Python)
 ```python
-import onnxruntime as ort
-import numpy as np
-
-# Load ONNX model
-session = ort.InferenceSession("voicemail_model.onnx")
-
-# Load or prepare input features (shape: 1 x C x T)
-features = np.load("input_features.npy").astype(np.float32)
-
-# Run inference
-outputs = session.run(None, {"input": features})
-prediction = outputs[0]  # [voicemail_prob, human_prob]
+python3 predict_wav_attn.py 20240514-INGROUP_504-all.wav
